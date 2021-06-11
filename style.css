@@ -1,8 +1,31 @@
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+body{
+  margin: 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+header {
+  position: relative;
+  background-color: white;
+  list-style: none;
+  grid-column: 1/13;
+  height: 20vh;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+header li {
+  grid-column: 1;
+  display: inline;
 }
