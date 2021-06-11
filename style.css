@@ -15,10 +15,10 @@ main {
 
 header {
   position: relative;
-  background-color: white;
+  background-color: rgb(7, 14, 54);
   list-style: none;
   grid-column: 1/13;
-  height: 20vh;
+  display: inline-block;
   width: 100%;
   padding: 0px;
   margin: 0px;
@@ -26,6 +26,30 @@ header {
 }
 
 header li {
-  grid-column: 1;
-  display: inline;
+  display: inline-block;
+  height: 100%;
+  margin-right: 5%;
+  border-radius: 10%;
+  text-decoration: none;
+  font-size: 5vw;
+}
+
+header li a {
+  display: inline-block;
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+@media screen and (min-width: 1200px) {
+  header li {
+    font-size: 60px;
+  }
+}
+
+header li:hover {
+  background-color: #ddd;
+}
+
+header li a:hover {
+  color: black;
 }
