@@ -53,3 +53,17 @@ header li:hover {
 header li a:hover {
   color: black;
 }
+
+div {
+  grid-column: 1/5;
+  background-color: #046307;
+  color: #ddd;
+  z-index: 1;
+  margin: 5vh 0;
+  border-radius: 5px;
+}
+
+div p {
+  margin: 1vw;
+  font-size: 20px;
+}

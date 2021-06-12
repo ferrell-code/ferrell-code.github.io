@@ -1,8 +1,11 @@
-import './style.css'
+import './style.css';
 
 import * as THREE from 'three';
 
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import mars_image from './images/2k_mars.jpg';
+import mars_text from './images/texture.jpg';
+import sun_image from './images/2k_sun.jpg';
+import space_image from './images/space_background.jpg';
 
 // while loop for scene animation
 function animate(pi) {
@@ -13,11 +16,9 @@ function animate(pi) {
   pi  += 0.00001;
   planet.rotation.y += 0.03;
   planet.position.x += Math.sin( pi * 0.001) * 0.7;
-  planet.position.z += Math.cos( pi * 0.001) * 0.7;
+  planet.position.z += Math.cos( pi * 0.001) * 0.9;
 
   sun.rotation.y -= 0.005;
-  controls.update();
-
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
 }
@@ -34,25 +35,23 @@ function init_torus_knot() {
 // create planet object
 function init_planet() {
   const planet_geometry = new THREE.SphereGeometry(4, 32, 32);
-  const planet_texture = new THREE.TextureLoader().load('./images/2k_mars.jpg');
-  const normal_texture = new THREE.TextureLoader().load('./images/texture.jpg');
+  const planet_texture = new THREE.TextureLoader().load(mars_image);
+  const normal_texture = new THREE.TextureLoader().load(mars_text);
   const planet_material = new THREE.MeshStandardMaterial({map: planet_texture, normalMap: normal_texture});
   const planet = new THREE.Mesh(planet_geometry, planet_material);
-  planet.position.set(10, 30, 0);
+  planet.position.set(0, 30, 0);
   return planet
 }
 
 // create sun object
 function init_sun() {
   const sun_geo = new THREE.SphereGeometry(10, 32, 32);
-  const sun_texture = new THREE.TextureLoader().load('./images/2k_sun.jpg');
+  const sun_texture = new THREE.TextureLoader().load(sun_image);
   const sun_material = new THREE.MeshStandardMaterial({map: sun_texture});
   const sun = new THREE.Mesh(sun_geo, sun_material);
   sun.position.set(30, 30, 0);
   return sun
 }
-
-
 
 // init scene
 const scene = new THREE.Scene();
@@ -82,12 +81,7 @@ pointLight.position.set(5,5,5);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
-const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(gridHelper);
-
-const controls = new OrbitControls(camera, renderer.domElement);
-
-const spaceTexture = new THREE.TextureLoader().load('./images/space_background.jpg');
+const spaceTexture = new THREE.TextureLoader().load(space_image);
 spaceTexture.minFilter = THREE.LinearFilter;
 scene.background = spaceTexture;
 
