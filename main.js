@@ -16,7 +16,7 @@ function animate(pi) {
   pi  += 0.00001;
   planet.rotation.y += 0.03;
   planet.position.x += Math.sin( pi * 0.001) * 0.7;
-  planet.position.z += Math.cos( pi * 0.001) * 0.9;
+  planet.position.z += Math.cos( pi * 0.001) * 0.7;
 
   sun.rotation.y -= 0.005;
   renderer.render(scene, camera);
