@@ -1,5 +1,4 @@
 import './css/style.css';
-import * as THREE from 'three';
 
 import mars_image from './images/2k_mars.jpg';
 import mars_text from './images/texture.jpg';
