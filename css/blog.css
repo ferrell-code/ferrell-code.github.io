@@ -1,0 +1,71 @@
+html {
+    background: url("../images/space_background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  body{
+    margin: 0;
+  }
+  
+  main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  
+  header {
+    position: relative;
+    background-color: rgb(7, 14, 54);
+    list-style: none;
+    grid-column: 1/13;
+    display: inline-block;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+  }
+  
+  header li {
+    display: inline-block;
+    height: 100%;
+    margin-right: 5%;
+    border-radius: 5%;
+    text-decoration: none;
+    font-size: 5vw;
+  }
+  
+  header li a {
+    display: inline-block;
+    text-decoration: none;
+    color: whitesmoke;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    header li {
+      font-size: 60px;
+    }
+  }
+  
+  header li:hover {
+    background-color: #ddd;
+  }
+  
+  header li a:hover {
+    color: black;
+  }
+
+div {
+  grid-column: 1/5;
+  background-color: #046307;
+  color: #ddd;
+  z-index: 1;
+  margin: 5vh 0;
+  border-radius: 5px;
+}
+
+div p {
+  margin: 1vw;
+  font-size: 20px;
+}

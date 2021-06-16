@@ -1,4 +1,4 @@
-import './style.css';
+import './css/style.css';
 import * as THREE from 'three';
 
 import mars_image from './images/2k_mars.jpg';
@@ -34,21 +34,20 @@ function init_sun() {
   sun.position.set(30, 30, 0);
 }
 
-// create my photo dodecahedron
+// create my photo on a coin animation
 function init_me() {
-  const me_geo = new THREE.CircleGeometry(8);
+  const me_geo = new THREE.CircleGeometry(15, 32, 32);
   const me_text = new THREE.TextureLoader().load(my_image);
-  const me_material = new THREE.MeshStandardMaterial({map: me_text});
-  dodec_me = new THREE.Mesh(me_geo, me_material);
-  dodec_me.position.set(0, 0, 0);
+  const me_material = new THREE.MeshBasicMaterial({map: me_text});
+  me = new THREE.Mesh(me_geo, me_material);
+  me.material.side = THREE.DoubleSide;
+  me.position.set(0, 0, 0);
 }
 
 // creates light sources
 function init_lights() {
   pointLight = new THREE.PointLight(0xffffff);
   pointLight.position.set(-10, -10, -10);
-  pointLight2 = new THREE.PointLight(0xffffff);
-  pointLight2.position.set(10, 10, 10);
 
   ambientLight = new THREE.AmbientLight(0xffffff);
 }
@@ -89,11 +88,11 @@ function init() {
   init_planet();
   init_me();
 
-  scene.add(torus_knot, planet, sun, ambientLight, pointLight, pointLight2, dodec_me);
+  scene.add(torus_knot, planet, sun, ambientLight, pointLight, me);
 }
 
 // main function
-let camera, renderer, torus_knot, planet, sun, dodec_me, pointLight, pointLight2, ambientLight, spaceTexture, scene;
+let camera, renderer, torus_knot, planet, sun, me, pointLight, ambientLight, spaceTexture, scene;
 init();
 
 //make backround stretch with screen as well as objects
@@ -116,7 +115,6 @@ var animate = function() {
   torus_knot.rotation.y += 0.0075;
   torus_knot.rotation.z += 0.005;
   planet.rotation.y += 0.03;
-  dodec_me.rotation.y += 0.005;
   // creates orbit animation
   theta += dTheta;
   planet.position.x = r * Math.cos(theta) + 20;
