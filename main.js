@@ -1,4 +1,6 @@
+"use strict";
 import './css/style.css';
+import * as THREE from 'https://rawgit.com/mrdoob/three.js/dev/build/three.js';
 
 import mars_image from './images/2k_mars.jpg';
 import mars_text from './images/texture.jpg';
