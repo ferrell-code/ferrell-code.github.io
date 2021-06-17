@@ -1,5 +1,3 @@
-import * as THREE from 'https://rawgit.com/mrdoob/three.js/dev/build/three.js';
-
 // create knot object
 function init_torus_knot() {
   const knot_geometry = new THREE.TorusKnotGeometry(10,3,16,100);
