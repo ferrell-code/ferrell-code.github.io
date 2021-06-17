@@ -68,6 +68,7 @@ function init_background() {
 
 // creates scene
 function init() {
+  scene = new THREE.Scene();
   init_camera();
   init_renderer();
   init_torus_knot();
@@ -81,7 +82,6 @@ function init() {
 }
 
 // main function
-scene = new THREE.Scene();
 let camera, renderer, torus_knot, planet, sun, me, pointLight, ambientLight, spaceTexture, scene;
 init();
 
