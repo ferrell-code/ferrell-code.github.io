@@ -1,12 +1,11 @@
-"use strict";
 import './css/style.css';
 import * as THREE from 'https://rawgit.com/mrdoob/three.js/dev/build/three.js';
 
-import mars_image from 'images/2k_mars.jpg';
-import mars_text from 'images/texture.jpg';
-import sun_image from 'images/2k_sun.jpg';
-import space_image from 'images/space_background.jpg';
-import my_image from 'images/chuck4.png';
+import mars_image from './images/2k_mars.jpg';
+import mars_text from './images/texture.jpg';
+import sun_image from './images/2k_sun.jpg';
+import space_image from './images/space_background.jpg';
+import my_image from './images/chuck4.png';
 
 // create knot object
 function init_torus_knot() {
