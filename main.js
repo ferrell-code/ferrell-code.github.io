@@ -1,11 +1,4 @@
-import './css/style.css';
 import * as THREE from 'https://rawgit.com/mrdoob/three.js/dev/build/three.js';
-
-import mars_image from './images/2k_mars.jpg';
-import mars_text from './images/texture.jpg';
-import sun_image from './images/2k_sun.jpg';
-import space_image from './images/space_background.jpg';
-import my_image from './images/chuck4.png';
 
 // create knot object
 function init_torus_knot() {
@@ -18,8 +11,8 @@ function init_torus_knot() {
 // create planet object
 function init_planet() {
   const planet_geometry = new THREE.SphereGeometry(4, 32, 32);
-  const planet_texture = new THREE.TextureLoader().load(mars_image);
-  const normal_texture = new THREE.TextureLoader().load(mars_text);
+  const planet_texture = new THREE.TextureLoader().load('images/2k_mars.jpg');
+  const normal_texture = new THREE.TextureLoader().load('images/texture.jpg');
   const planet_material = new THREE.MeshStandardMaterial({map: planet_texture, normalMap: normal_texture});
   planet = new THREE.Mesh(planet_geometry, planet_material);
   planet.position.set(20, 30, 0);
@@ -28,7 +21,7 @@ function init_planet() {
 // create sun object
 function init_sun() {
   const sun_geo = new THREE.SphereGeometry(10, 32, 32);
-  const sun_texture = new THREE.TextureLoader().load(sun_image);
+  const sun_texture = new THREE.TextureLoader().load('images/2k_sun.jpg');
   const sun_material = new THREE.MeshStandardMaterial({map: sun_texture});
   sun = new THREE.Mesh(sun_geo, sun_material);
   sun.position.set(30, 30, 0);
@@ -37,7 +30,7 @@ function init_sun() {
 // create my photo on a coin animation
 function init_me() {
   const me_geo = new THREE.CircleGeometry(15, 32, 32);
-  const me_text = new THREE.TextureLoader().load(my_image);
+  const me_text = new THREE.TextureLoader().load('images/chuck4.png');
   const me_material = new THREE.MeshBasicMaterial({map: me_text});
   me = new THREE.Mesh(me_geo, me_material);
   me.material.side = THREE.DoubleSide;
@@ -70,7 +63,7 @@ function init_renderer() {
 
 // creates background
 function init_background() {
-  spaceTexture = new THREE.TextureLoader().load(space_image);
+  spaceTexture = new THREE.TextureLoader().load('images/space_background.jpg');
   spaceTexture.minFilter = THREE.LinearFilter;
   scene.background = spaceTexture;
 }
