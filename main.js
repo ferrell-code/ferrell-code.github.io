@@ -3,7 +3,7 @@ function init_torus_knot() {
   const knot_geometry = new THREE.TorusKnotGeometry(10,3,16,100);
   const knot_material = new THREE.MeshStandardMaterial({color: 0x85144});
   torus_knot = new THREE.Mesh(knot_geometry, knot_material);
-  torus_knot.position.set(40, -20, 0);
+  torus_knot.position.set(20, -45, 0);
 }
 
 // create planet object
@@ -13,7 +13,7 @@ function init_planet() {
   const normal_texture = new THREE.TextureLoader().load('images/texture.jpg');
   const planet_material = new THREE.MeshStandardMaterial({map: planet_texture, normalMap: normal_texture});
   planet = new THREE.Mesh(planet_geometry, planet_material);
-  planet.position.set(20, 30, 0);
+  planet.position.set(20, 40, 0);
 }
 
 // create sun object
@@ -22,17 +22,17 @@ function init_sun() {
   const sun_texture = new THREE.TextureLoader().load('images/2k_sun.jpg');
   const sun_material = new THREE.MeshStandardMaterial({map: sun_texture});
   sun = new THREE.Mesh(sun_geo, sun_material);
-  sun.position.set(30, 30, 0);
+  sun.position.set(30, 40, 0);
 }
 
 // create my photo on a coin animation
 function init_me() {
-  const me_geo = new THREE.CircleGeometry(15, 32, 32);
+  const me_geo = new THREE.CircleGeometry(11, 32, 32);
   const me_text = new THREE.TextureLoader().load('images/chuck4.png');
   const me_material = new THREE.MeshBasicMaterial({map: me_text});
   me = new THREE.Mesh(me_geo, me_material);
   me.material.side = THREE.DoubleSide;
-  me.position.set(0, 0, 0);
+  me.position.set(2, 0, 0);
 }
 
 // creates light sources
