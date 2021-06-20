@@ -68,4 +68,5 @@ div {
 div p {
   margin: 1vw;
   font-size: 20px;
+  overflow-wrap: break-word;
 }
